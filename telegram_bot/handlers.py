@@ -3,6 +3,8 @@ import os
 from os import getenv
 from dotenv import load_dotenv
 import requests
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+
 from .meteo import WeatherService, WeatherServiceException
 from .database import Contact, session
 
@@ -110,7 +112,7 @@ class MessageHandler(TelegramHandler):
                     self.send_markup_message('Виберіть бажане місто з списку:', markup)
 
         elif command == '/stories' or command == '/розповіді':
-            drive_url = 'https://drive.google.com/drive/folders/1r6h5Ehe_PYWRvJIt8tmShsDjq4DxZYm3'
+            drive_url = 'https://drive.google.com/drive/folders/1r6h5Ehe_PYWRvJIt8tmShsDjq4DxZYm3?usp=sharing'
             buttons = [
                 [InlineKeyboardButton("Розповіді", url=drive_url)],
             ]
